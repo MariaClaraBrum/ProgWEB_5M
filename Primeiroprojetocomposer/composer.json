@@ -1,14 +1,14 @@
 {
-    "name": "php/gatos",
+    "name": "php/filme",
     "description": "Este é o meu primeiro projeto em PHP usando composer",
     "autoload": {
         "psr-4": {
-            "Gatos\\": "src/"
+            "Filme\\": "src/"
         }
     },
     "authors": [
         {
-            "name": "Aluno"
+            "name": "Maria Clara"
         }
     ],
     "require": {}
