@@ -73,6 +73,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 ?>
-
+    <br><br>
+    <a href="index.php">Voltar a Página Principal</a>
+    
 </body>
 </html>
