@@ -17,12 +17,12 @@ $router = new Rout($metodo, $caminho);
 
 #ROTAS
 
-$router->get('/inserir_gatos', 
-    'Gatos\Controllers\HomeController@formExer1');
+$router->get('/inserir_filme', 
+    'Filme\Controllers\HomeController@formExer1');
 
-$router->post('/inserir_gatos/resposta', function(){
-    $cor_pelagem = $_POST['cor_pelagem'] ?? null;
-    $cor_olhos = $_POST['cor_olhos'] ?? null;
+$router->post('/inserir_filme/resposta', function(){
+    $nome = $_POST['nome'] ?? null;
+    $autor = $_POST['autor'] ?? null;
 } );
 
 $router->get('/inserir_serie', 
@@ -34,7 +34,7 @@ $router->post('/inserir_serie/resposta', function(){
 });
 
 $router->get('/inserir_livro', 
-    'Livros\Controllers\HomeController@formExer1');
+    'Livro\Controllers\HomeController@formExer1');
 
 $router->post('/inserir_livro/resposta', function(){
     $nome = $_POST['nome'] ?? null;
@@ -55,9 +55,9 @@ $router->get('/filme/inserir', 'Projeto\Controllers\FilmeController@inserir');
 
 $router->post('/filme/novo', 'Projeto\Controllers\FilmeController@novo');
 
-$router->get('/contas/inserir', 'Projeto\Controllers\SerieController@inserir');
+$router->get('/serie/inserir', 'Projeto\Controllers\SerieController@inserir');
 
-$router->post('/contas/novo', 'Projeto\Controllers\SerieController@novo');
+$router->post('/serie/novo', 'Projeto\Controllers\SerieController@novo');
 
 $router->get('/livro/inserir', 'Projeto\Controllers\LivroController@inserir');
 
