@@ -8,23 +8,23 @@ class Filme{
     private $autor;
 
     public function __construct($nome, $autor){
-        $this->setnome($nome);
-        $this->setautor($autor);
+        $this->setNome($nome);
+        $this->setAutor($autor);
     }
 
-    public function getnome(){
+    public function getNome(){
         return $this->nome;
     }
 
-    public function setnome($nome){
+    public function setNome($nome){
         return $this->nome = $nome;
     }
 
-    public function getautor(){
+    public function getAutor(){
         return $this->autor;
     }
 
-    public function setautor($autor){
+    public function setAutor($autor){
         $this->autor = $autor;
     }
 

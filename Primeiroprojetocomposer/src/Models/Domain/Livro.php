@@ -5,11 +5,11 @@ namespace Projeto\Models\Domain;
 class Livro{
 
     private $nome;
-    private $autor;
+    private $escritor;
 
-    public function __construct($nome, $autor){
+    public function __construct($nome, $escritor){
         $this->setNome($nome);
-        $this->setAutor($autor);
+        $this->setEscritor($escritor);
     }
 
     public function getNome(){
@@ -20,12 +20,12 @@ class Livro{
         return $this->nome = $nome;
     }
 
-    public function getAutor(){
-        return $this->autor;
+    public function getEscritor(){
+        return $this->escritor;
     }
 
-    public function setAutor($autor){
-        $this->autor = $autor;
+    public function setEscritor($escritor){
+        $this->escritor = $escritor;
     }
 
 }
