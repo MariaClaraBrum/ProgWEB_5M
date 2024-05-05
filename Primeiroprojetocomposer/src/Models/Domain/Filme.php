@@ -3,13 +3,23 @@
 namespace Projeto\Models\Domain;
 
 class Filme{
-
+    
+    private $id;
     private $nome;
     private $autor;
 
-    public function __construct($nome, $autor){
+    public function __construct($id, $nome, $autor){
+        $this->setId($id);
         $this->setNome($nome);
         $this->setAutor($autor);
+    }
+
+    public function getId(){
+        return $this->id;
+    }
+
+    public function setId($id){
+        $this->id = $id;
     }
 
     public function getNome(){
@@ -27,6 +37,5 @@ class Filme{
     public function setAutor($autor){
         $this->autor = $autor;
     }
-
 
 }
