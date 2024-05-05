@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 18-Abr-2024 às 04:31
+-- Tempo de geração: 05-Maio-2024 às 22:17
 -- Versão do servidor: 10.4.27-MariaDB
 -- versão do PHP: 8.2.0
 
@@ -28,10 +28,19 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `filme` (
-  `IDfilme` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `nome` varchar(250) NOT NULL,
   `autor` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Extraindo dados da tabela `filme`
+--
+
+INSERT INTO `filme` (`id`, `nome`, `autor`) VALUES
+(1, 'Minha mãe é uma peça', 'Paulo Gustavo'),
+(3, 'Harry Potter', 'JK Rowling'),
+(4, 'Vingadores: Ultimato', 'Joe Russo e Anthony Russo');
 
 --
 -- Índices para tabelas despejadas
@@ -41,7 +50,17 @@ CREATE TABLE `filme` (
 -- Índices para tabela `filme`
 --
 ALTER TABLE `filme`
-  ADD PRIMARY KEY (`IDfilme`);
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT de tabelas despejadas
+--
+
+--
+-- AUTO_INCREMENT de tabela `filme`
+--
+ALTER TABLE `filme`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

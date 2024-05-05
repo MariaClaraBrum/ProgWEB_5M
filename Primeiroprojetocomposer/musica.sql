@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 18-Abr-2024 às 04:31
+-- Tempo de geração: 05-Maio-2024 às 22:18
 -- Versão do servidor: 10.4.27-MariaDB
 -- versão do PHP: 8.2.0
 
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `musica` (
-  `IDmusica` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `nome` varchar(150) NOT NULL,
   `produtor` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -41,7 +41,17 @@ CREATE TABLE `musica` (
 -- Índices para tabela `musica`
 --
 ALTER TABLE `musica`
-  ADD PRIMARY KEY (`IDmusica`);
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT de tabelas despejadas
+--
+
+--
+-- AUTO_INCREMENT de tabela `musica`
+--
+ALTER TABLE `musica`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

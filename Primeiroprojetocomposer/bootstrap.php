@@ -5,12 +5,12 @@ require __DIR__."/vendor/autoload.php";
 $metodo = $_SERVER['REQUEST_METHOD'];
 $caminho = $_SERVER['PATH_INFO'] ?? '/';
 
-use Filme\Router as Rout;
+// use Projeto\Router as Router;
 // use Serie\Router as SerieRouter;
 // use Livro\Router as LivroRouter;
 // use Musica\Router as MusicaRouter;
 
-$router = new Rout($metodo, $caminho);
+$router = new Projeto\Router($metodo, $caminho);
 // $router = new SerieRouter($metodo, $caminho);
 // $router = new LivroRouter($metodo, $caminho);
 // $router = new MusicaRouter($metodo, $caminho);
@@ -18,15 +18,15 @@ $router = new Rout($metodo, $caminho);
 #ROTAS
 
 $router->get('/inserir_filme', 
-    'Filme\Controllers\HomeController@formExer1');
+    'Projeto\Controllers\FilmeController@inserir_filme');
 
 $router->post('/inserir_filme/resposta', function(){
     $nome = $_POST['nome'] ?? null;
     $autor = $_POST['autor'] ?? null;
 } );
 
-$router->get('/inserir_serie', 
-    'Serie\Controllers\HomeController@formExer1');
+/*$router->get('/inserir_serie', 
+    'Serie\Controllers\HomeController@inserir_serie');
 
 $router->post('/inserir_serie/resposta', function(){
     $nome = $_POST['nome'] ?? null;
@@ -34,7 +34,7 @@ $router->post('/inserir_serie/resposta', function(){
 });
 
 $router->get('/inserir_livro', 
-    'Livro\Controllers\HomeController@formExer1');
+    'Livro\Controllers\HomeController@inserir_livro');
 
 $router->post('/inserir_livro/resposta', function(){
     $nome = $_POST['nome'] ?? null;
@@ -42,52 +42,60 @@ $router->post('/inserir_livro/resposta', function(){
 });
 
 $router->get('/inserir_musica', 
-    'Musica\Controllers\HomeController@formExer1');
+    'Musica\Controllers\HomeController@inserir_musica');
 
 $router->post('/inserir_musica/resposta', function(){
     $nome = $_POST['nome'] ?? null;
     $produtor = $_POST['produtor'] ?? null;
-});
+});*/
 
 
-//Chamando o formulário para inserir categoria
-$router->get('/filme/inserir', 'Projeto\Controllers\FilmeController@inserir');
+//Chamando o formulário para inserir Filme
+$router->get('/filme/inserir',
+                'Projeto\Controllers\FilmeController@inserir');
 
-$router->post('/filme/novo', 'Projeto\Controllers\FilmeController@novo');
+$router->post('/filme/novo',
+                'Projeto\Controllers\FilmeController@novo');
 
-$router->get('/serie/inserir', 'Projeto\Controllers\SerieController@inserir');
+$router->get('/filme', 
+                'Projeto\Controllers\FilmeController@index');
 
-$router->post('/serie/novo', 'Projeto\Controllers\SerieController@novo');
+$router->get('/filme/{acao}/{status}', 
+                'Projeto\Controllers\FilmeController@index');
+            
+$router->get('/filme/alterar/id/{id}',
+                'Projeto\Controllers\FilmeController@alterar');
+            
+$router->get('/filme/excluir/id/{id}',
+                'Projeto\Controllers\FilmeController@excluir');
+            
+$router->post('/filme/editar',
+                'Projeto\Controllers\FilmeController@editar');
+            
+$router->post('/filme/deletar',
+            'Projeto\Controllers\FilmeController@deletar');
 
-$router->get('/livro/inserir', 'Projeto\Controllers\LivroController@inserir');
+//$router->get('/serie/inserir', 'Projeto\Controllers\SerieController@inserir');
 
-$router->post('/livro/novo', 'Projeto\Controllers\LivroController@novo');
+//$router->post('/serie/novo', 'Projeto\Controllers\SerieController@novo');
 
-$router->get('/musica/inserir', 'Projeto\Controllers\MusicaController@inserir');
+//$router->get('/livro/inserir', 'Projeto\Controllers\LivroController@inserir');
 
-$router->post('/musica/novo', 'Projeto\Controllers\MusicaController@novo');
+//$router->post('/livro/novo', 'Projeto\Controllers\LivroController@novo');
 
-// $routerUsado = null;
-// if ($router->matchRoute()) {
-//     $routerUsado = $router;
-// } elseif ($router->matchRoute()) {
-//     $routerUsado = $router;
-// } elseif ($router->matchRoute()) {
-//     $routerUsado = $router;
-// } elseif ($router->matchRoute()) {
-//     $routerUsado = $router;
-// } 
+//$router->get('/musica/inserir', 'Projeto\Controllers\MusicaController@inserir');
 
-// Se nenhum roteador corresponder ao caminho, retornar 404
-// if (!$routerUsado) {
-//     http_response_code(404);
-//     echo "Página não encontrada!";
-//     die();
-// }
+//$router->post('/musica/novo', 'Projeto\Controllers\MusicaController@novo');
 
 
 // Manipulando a solicitação usando o roteador correto
 $resultado = $router->handler();
+
+if(!$resultado){
+    http_response_code(404);
+    echo "Página não encontrada!";
+    die();
+}
 
 // Tratando o resultado
 if ($resultado instanceof Closure) {
@@ -98,23 +106,3 @@ if ($resultado instanceof Closure) {
     $resultado = $resultado[1];
     echo $controller->$resultado($router->getParams());
 }
-
-#ROTAS
-
-/*$resultado = $router->handler() ?? $router->handler();
-
-if(!$resultado){
-    http_response_code(404);
-    echo "Página não encontrada!";
-    die();
-}
-
-if ($resultado instanceof Closure){
-    echo $resultado($router->getParams() ?? $router->getParams());
-} elseif (is_string($resultado)){
-    $resultado = explode("@", $resultado);
-    $controller = new $resultado[0];
-    $resultado = $resultado[1];
-    echo $controller->$resultado($router->getParams() ?? $router->getParams());
-}
-*/
