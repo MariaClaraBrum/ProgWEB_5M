@@ -25,6 +25,14 @@ $router->post('/inserir_filme/resposta', function(){
     $autor = $_POST['autor'] ?? null;
 } );
 
+$router->get('/inserir_livro', 
+    'Livro\Controllers\HomeController@inserir_livro');
+
+$router->post('/inserir_livro/resposta', function(){
+    $nome = $_POST['nome'] ?? null;
+    $escritor = $_POST['escritor'] ?? null;
+});
+
 /*$router->get('/inserir_serie', 
     'Serie\Controllers\HomeController@inserir_serie');
 
@@ -33,13 +41,7 @@ $router->post('/inserir_serie/resposta', function(){
     $criador = $_POST['criador'] ?? null;
 });
 
-$router->get('/inserir_livro', 
-    'Livro\Controllers\HomeController@inserir_livro');
 
-$router->post('/inserir_livro/resposta', function(){
-    $nome = $_POST['nome'] ?? null;
-    $escritor = $_POST['escritor'] ?? null;
-});
 
 $router->get('/inserir_musica', 
     'Musica\Controllers\HomeController@inserir_musica');
@@ -79,9 +81,27 @@ $router->post('/filme/deletar',
 
 //$router->post('/serie/novo', 'Projeto\Controllers\SerieController@novo');
 
-//$router->get('/livro/inserir', 'Projeto\Controllers\LivroController@inserir');
+$router->get('/livro/inserir', 'Projeto\Controllers\LivroController@inserir');
 
-//$router->post('/livro/novo', 'Projeto\Controllers\LivroController@novo');
+$router->post('/livro/novo', 'Projeto\Controllers\LivroController@novo');
+
+$router->get('/livro', 
+                'Projeto\Controllers\LivroController@index');
+
+$router->get('/livro/{acao}/{status}', 
+                'Projeto\Controllers\LivroController@index');
+            
+$router->get('/livro/alterar/id/{id}',
+                'Projeto\Controllers\LivroController@alterar');
+            
+$router->get('/livro/excluir/id/{id}',
+                'Projeto\Controllers\LivroController@excluir');
+            
+$router->post('/livro/editar',
+                'Projeto\Controllers\LivroController@editar');
+            
+$router->post('/livro/deletar',
+            'Projeto\Controllers\LivroController@deletar');
 
 //$router->get('/musica/inserir', 'Projeto\Controllers\MusicaController@inserir');
 
