@@ -39,7 +39,7 @@ $router->post('/inserir_livro/resposta', function(){
 $router->post('/inserir_serie/resposta', function(){
     $nome = $_POST['nome'] ?? null;
     $criador = $_POST['criador'] ?? null;
-});
+});*/
 
 
 
@@ -49,10 +49,9 @@ $router->get('/inserir_musica',
 $router->post('/inserir_musica/resposta', function(){
     $nome = $_POST['nome'] ?? null;
     $produtor = $_POST['produtor'] ?? null;
-});*/
+});
 
-
-//Chamando o formulário para inserir Filme
+// Filme
 $router->get('/filme/inserir',
                 'Projeto\Controllers\FilmeController@inserir');
 
@@ -81,6 +80,8 @@ $router->post('/filme/deletar',
 
 //$router->post('/serie/novo', 'Projeto\Controllers\SerieController@novo');
 
+// Livro
+
 $router->get('/livro/inserir', 'Projeto\Controllers\LivroController@inserir');
 
 $router->post('/livro/novo', 'Projeto\Controllers\LivroController@novo');
@@ -103,9 +104,29 @@ $router->post('/livro/editar',
 $router->post('/livro/deletar',
             'Projeto\Controllers\LivroController@deletar');
 
-//$router->get('/musica/inserir', 'Projeto\Controllers\MusicaController@inserir');
+// Musica
 
-//$router->post('/musica/novo', 'Projeto\Controllers\MusicaController@novo');
+$router->get('/musica/inserir', 'Projeto\Controllers\MusicaController@inserir');
+
+$router->post('/musica/novo', 'Projeto\Controllers\MusicaController@novo');
+
+$router->get('/musica', 
+                'Projeto\Controllers\MusicaController@index');
+
+$router->get('/musica/{acao}/{status}', 
+                'Projeto\Controllers\MusicaController@index');
+            
+$router->get('/musica/alterar/id/{id}',
+                'Projeto\Controllers\MusicaController@alterar');
+            
+$router->get('/musica/excluir/id/{id}',
+                'Projeto\Controllers\MusicaController@excluir');
+            
+$router->post('/musica/editar',
+                'Projeto\Controllers\MusicaController@editar');
+            
+$router->post('/musica/deletar',
+            'Projeto\Controllers\MusicaController@deletar');
 
 
 // Manipulando a solicitação usando o roteador correto
