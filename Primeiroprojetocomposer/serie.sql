@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 05-Maio-2024 às 22:18
+-- Tempo de geração: 31-Maio-2024 às 21:55
 -- Versão do servidor: 10.4.27-MariaDB
 -- versão do PHP: 8.2.0
 
@@ -34,6 +34,14 @@ CREATE TABLE `serie` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Extraindo dados da tabela `serie`
+--
+
+INSERT INTO `serie` (`id`, `nome`, `criador`) VALUES
+(2, 'stranger things', 'netflix'),
+(3, 'OUT', 'disney');
+
+--
 -- Índices para tabelas despejadas
 --
 
@@ -51,7 +59,7 @@ ALTER TABLE `serie`
 -- AUTO_INCREMENT de tabela `serie`
 --
 ALTER TABLE `serie`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -11,8 +11,8 @@ class MusicaController{
     }
 
     public function index($params){
-        $musicaDAO = new MusicaDAO();
-        $resultado = $musicaDAO->consultarTodos();
+        $MusicaDAO = new MusicaDAO();
+        $resultado = $MusicaDAO->consultarTodos();
         $acao = $params[1] ?? "";
         $status = $params[2] ?? "";
         if($acao == "inserir" && $status == "true")
@@ -33,7 +33,7 @@ class MusicaController{
     }
 
     public function inserir($params){
-        require_once("../src/Views/musica/inserir_musica.html");
+        require_once("../src/Views/musica/inserir_Musica.html");
     }
 
     public function novo($params){
@@ -42,8 +42,8 @@ class MusicaController{
         $produtor = $_POST['produtor'] ?? '';
     
         $musica = new Musica($id, $nome, $produtor);
-        $musicaDAO = new MusicaDAO();
-        if ($musicaDAO->inserir($musica)){
+        $MusicaDAO = new MusicaDAO();
+        if ($MusicaDAO->inserir($musica)){
         header("location: /musica?inserir=true");
         } else {
         header("location: /musica?inserir=false");
@@ -51,21 +51,21 @@ class MusicaController{
     }
 
     public function alterar($params){
-        $musicaDAO = new MusicaDAO();
-        $resultado = $musicaDAO->consultar($params[1]);
+        $MusicaDAO = new MusicaDAO();
+        $resultado = $MusicaDAO->consultar($params[1]);
         require_once("../src/Views/musica/alterar_musica.php");
     }
 
     public function excluir($params){
-        $musicaDAO = new MusicaDAO();
-        $resultado = $musicaDAO->consultar($params[1]);
+        $MusicaDAO = new MusicaDAO();
+        $resultado = $MusicaDAO->consultar($params[1]);
         require_once("../src/Views/musica/excluir_musica.php");
     }
 
     public function editar($params){
         $musica = new Musica($_POST['id'], $_POST['nome'], $_POST['produtor']);
-        $musicaDAO = new MusicaDAO();
-        if ($musicaDAO->alterar($musica)){
+        $MusicaDAO = new MusicaDAO();
+        if ($MusicaDAO->alterar($musica)){
             header("location: /musica/alterar/true");
         } else {
             header("location: /musica/alterar/false");
@@ -74,8 +74,8 @@ class MusicaController{
     }
 
     public function deletar($params){
-        $musicaDAO = new MusicaDAO();
-        if ($musicaDAO->excluir($_POST['id'])){
+        $MusicaDAO = new MusicaDAO();
+        if ($MusicaDAO->excluir($_POST['id'])){
             header("location: /musica/excluir/true");
         } else {
             header("location: /musica/excluir/false");

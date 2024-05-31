@@ -4,12 +4,22 @@ namespace Projeto\Models\Domain;
 
 class Serie{
 
+    private $id;
     private $nome;
     private $criador;
 
-    public function __construct($nome, $criador){
+    public function __construct($id, $nome, $criador){
+        $this->setId($id);
         $this->setNome($nome);
         $this->setCriador($criador);
+    }
+
+    public function getId(){
+        return $this->id;
+    }
+
+    public function setId($id){
+        $this->id = $id;
     }
 
     public function getNome(){

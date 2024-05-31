@@ -33,14 +33,13 @@ $router->post('/inserir_livro/resposta', function(){
     $escritor = $_POST['escritor'] ?? null;
 });
 
-/*$router->get('/inserir_serie', 
+$router->get('/inserir_serie', 
     'Serie\Controllers\HomeController@inserir_serie');
 
 $router->post('/inserir_serie/resposta', function(){
     $nome = $_POST['nome'] ?? null;
     $criador = $_POST['criador'] ?? null;
-});*/
-
+});
 
 
 $router->get('/inserir_musica', 
@@ -76,9 +75,30 @@ $router->post('/filme/editar',
 $router->post('/filme/deletar',
             'Projeto\Controllers\FilmeController@deletar');
 
-//$router->get('/serie/inserir', 'Projeto\Controllers\SerieController@inserir');
+// Serie
 
-//$router->post('/serie/novo', 'Projeto\Controllers\SerieController@novo');
+$router->get('/serie/inserir', 'Projeto\Controllers\SerieController@inserir');
+
+$router->post('/serie/novo', 'Projeto\Controllers\SerieController@novo');
+
+$router->get('/serie', 
+                'Projeto\Controllers\SerieController@index');
+
+$router->get('/serie/{acao}/{status}', 
+                'Projeto\Controllers\SerieController@index');
+            
+$router->get('/serie/alterar/id/{id}',
+                'Projeto\Controllers\SerieController@alterar');
+            
+$router->get('/serie/excluir/id/{id}',
+                'Projeto\Controllers\SerieController@excluir');
+            
+$router->post('/serie/editar',
+                'Projeto\Controllers\SerieController@editar');
+            
+$router->post('/serie/deletar',
+            'Projeto\Controllers\SerieController@deletar');
+
 
 // Livro
 
