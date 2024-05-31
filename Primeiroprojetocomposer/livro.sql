@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 05-Maio-2024 às 22:18
+-- Tempo de geração: 31-Maio-2024 às 02:51
 -- Versão do servidor: 10.4.27-MariaDB
 -- versão do PHP: 8.2.0
 
@@ -34,6 +34,14 @@ CREATE TABLE `livro` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Extraindo dados da tabela `livro`
+--
+
+INSERT INTO `livro` (`id`, `nome`, `escritor`) VALUES
+(1, 'Teto Para Dois', 'Beth Oleary'),
+(2, 'Amor e Sorte', 'Jenna Evans Welch');
+
+--
 -- Índices para tabelas despejadas
 --
 
@@ -51,7 +59,7 @@ ALTER TABLE `livro`
 -- AUTO_INCREMENT de tabela `livro`
 --
 ALTER TABLE `livro`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
