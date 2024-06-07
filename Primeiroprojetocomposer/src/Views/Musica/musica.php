@@ -20,6 +20,7 @@
                 <tr>
                     <th> Nome da Musica </th>
                     <th> Produtor </th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>

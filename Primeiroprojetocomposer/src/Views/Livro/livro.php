@@ -20,6 +20,7 @@
                 <tr>
                     <th> Nome do Livro </th>
                     <th> Escritor </th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>

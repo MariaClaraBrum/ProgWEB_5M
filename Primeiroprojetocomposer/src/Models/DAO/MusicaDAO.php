@@ -20,7 +20,7 @@ class MusicaDAO{
             $p->bindValue(":produtor", $musica->getProdutor());
             return $p->execute();
         } catch(\Exception $e){
-            return 0;
+            echo $e;
         }        
     }
 

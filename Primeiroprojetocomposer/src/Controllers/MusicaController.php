@@ -43,6 +43,7 @@ class MusicaController{
     
         $musica = new Musica($id, $nome, $produtor);
         $MusicaDAO = new MusicaDAO();
+        $MusicaDAO->inserir($musica);
         if ($MusicaDAO->inserir($musica)){
         header("location: /musica?inserir=true");
         } else {

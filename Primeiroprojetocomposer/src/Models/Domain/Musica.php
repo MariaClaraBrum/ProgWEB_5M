@@ -23,7 +23,7 @@ class Musica{
     }
 
     public function getNome(){
-        return $this->sabor;
+        return $this->nome;
     }
 
     public function setNome($nome){

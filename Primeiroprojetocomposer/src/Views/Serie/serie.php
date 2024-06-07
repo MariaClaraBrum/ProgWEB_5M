@@ -20,6 +20,7 @@
                 <tr>
                     <th> Nome da Serie </th>
                     <th> Criador </th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>

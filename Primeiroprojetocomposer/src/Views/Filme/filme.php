@@ -20,6 +20,7 @@
                 <tr>
                     <th> Nome do Filme </th>
                     <th> Autor </th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
