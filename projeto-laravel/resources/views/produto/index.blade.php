@@ -19,7 +19,7 @@
                 <td>{{ $c->nome }}</td>
                 <td>
                     <a href="{{ route('produtos.edit', $c->id) }}">Alterar</a>
-                    <a href="/produtos/delete/{{$c->id}}">Excluir</a>
+                    <a href="/produto/delete/{{$c->id}}">Excluir</a>
                 </td>
             </tr>
             @endforeach
