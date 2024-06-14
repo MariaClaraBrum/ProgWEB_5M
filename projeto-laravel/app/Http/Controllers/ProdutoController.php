@@ -82,13 +82,12 @@ class ProdutoController extends Controller
     {
         $produtos = Produto::findorFail($id);
         $produtos->delete();
-        return "Registro excluído com sucesso";
+        return redirect()->route('produtos.index')->with('success', 'Registro excluído com sucesso');
     }
 
     public function delete(string $id) {
         $produtos = Produto::findorFail($id);
         return view("produto.delete", compact('produtos'));
-        return redirect()->route('produtos.index')->with('success', 'Registro excluído com sucesso');
 
     }
 
