@@ -30,7 +30,7 @@
                     <td><?php echo e($c->categoria); ?></td>
                     <td class="actions">
                         <a href="<?php echo e(route('produtos.edit', $c->id)); ?>" class="btn btn-warning">Alterar</a> 
-                        <a href="{ produto/delete/<?php echo e($c->id); ?>" class="btn btn-danger">Excluir</a> 
+                        <a href="/produtos/delete/<?php echo e($c->id); ?>" class="btn btn-danger">Excluir</a> 
                     </td>
                 </tr>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

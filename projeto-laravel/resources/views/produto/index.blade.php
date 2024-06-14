@@ -30,7 +30,7 @@
                     <td>{{ $c->categoria }}</td>
                     <td class="actions">
                         <a href="{{ route('produtos.edit', $c->id) }}" class="btn btn-warning">Alterar</a> 
-                        <a href="{ produto/delete/{{$c->id}}" class="btn btn-danger">Excluir</a> 
+                        <a href="/produtos/delete/{{$c->id}}" class="btn btn-danger">Excluir</a> 
                     </td>
                 </tr>
                 @endforeach
