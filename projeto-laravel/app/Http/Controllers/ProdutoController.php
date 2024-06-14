@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Produto;
 use Illuminate\Http\Request;
 
 class ProdutoController extends Controller
@@ -13,7 +14,7 @@ class ProdutoController extends Controller
     {
         //vai exibir a tabela com todos os produtos
         $produto = Produto::all();
-        return view("produto.index", compact('produtos'));
+        return view("produto.index", compact('produto'));
     }
 
     /**
@@ -31,7 +32,12 @@ class ProdutoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Produto::create([
+            'nome' => $request->input('nome'),
+            'preco' => $request->input('preco'),
+            'categoria' => $request->input('categoria')
+        ]);
+        dd(Produto::all()->toArray());
     }
 
     /**
@@ -47,7 +53,8 @@ class ProdutoController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $produto = Produto::findorFail($id);
+        return view("produto.edit", compact('produto'));
     }
 
     /**
@@ -55,7 +62,13 @@ class ProdutoController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $produto = Produto::findorFail($id);
+        $produto->update([
+            'nome' => $request->input('nome'),
+            'preco' => $request->input('preco'),
+            'categoria'=> $request->input('categoria')
+        ]);
+        return "Registro alterado com sucesso";
     }
 
     /**
@@ -63,6 +76,15 @@ class ProdutoController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $produto = Produto::findorFail($id);
+        $produto->delete();
+        return "Registro excluído com sucesso";
     }
+
+    public function delete(string $id) {
+        $produto = Produto::findorFail($id);
+        return view("produto.delete", compact('produto'));
+
+    }
+
 }
