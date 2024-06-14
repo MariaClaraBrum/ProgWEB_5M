@@ -1,0 +1,55 @@
+/* estilos.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 20px;
+}
+h1 {
+    text-align: center;
+    color: #333;
+}
+a {
+    text-decoration: none;
+    color: #007BFF;
+}
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+th, td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+th {
+    background-color: #007BFF;
+    color: #fff;
+}
+tr:hover {
+    background-color: #f1f1f1;
+}
+.actions {
+    display: flex;
+    gap: 10px;
+}
+.actions a {
+    padding: 8px 12px;
+    border: 1px solid #007BFF;
+    border-radius: 4px;
+    color: #007BFF;
+    transition: all 0.3s ease;
+}
+.actions a:hover {
+    background-color: #007BFF;
+    color: #fff;
+}

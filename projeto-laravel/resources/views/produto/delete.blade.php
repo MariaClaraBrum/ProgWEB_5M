@@ -3,20 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulário de Produtos</title>
+    <title>Excluir Produto</title>
 </head>
 <body>
-    <h1>Formulário de Exclusão de Produtos</h1>
-    <form action="{{ route('produtos.destroy', $produtos->id) }}" method='POST'>
-        @CSRF
+    <h1>Excluir Produto</h1>
+    <p>Tem certeza que deseja excluir o produto {{ $produto->nome }}?</p>
+
+    <form action="{{ route('produtos.destroy', $produtos->id) }}" method="POST">
+        @csrf
         @method('DELETE')
-        <label for="nome">Nome do Produto</label>
-        <input type="text" name="nome" id="nome" value="{{$produtos->nome}}" disabled><br>
-        <label for="preco">Preço do Produto</label>
-        <input type="text" name="preco" id="preco" value="{{$produtos->preco}}" disabled><br>
-        <label for="categoria">Categoria do Produto</label>
-        <input type="text" name="categoria" id="categoria" value="{{$produtos->categoria}}" disabled></br>
-        <button type="submit">Excluir</button>
+        <button type="submit">Sim, excluir</button>
+        <a href="{{ route('produtos.index') }}">Cancelar</a>
     </form>
 </body>
 </html>
