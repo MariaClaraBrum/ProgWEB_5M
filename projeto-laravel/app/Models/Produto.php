@@ -9,4 +9,5 @@ class Produto extends Model
 {
     use HasFactory;
     protected $fillable = ['nome','preco','categoria'];
+    public $timestamps = false;
 }

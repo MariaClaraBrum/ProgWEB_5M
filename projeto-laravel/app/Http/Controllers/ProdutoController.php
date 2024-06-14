@@ -13,8 +13,8 @@ class ProdutoController extends Controller
     public function index()
     {
         //vai exibir a tabela com todos os produtos
-        $produto = Produto::all();
-        return view("produto.index", compact('produto'));
+        $produtos = Produto::all();
+        return view("produto.index", compact('produtos'));
     }
 
     /**
@@ -37,7 +37,12 @@ class ProdutoController extends Controller
             'preco' => $request->input('preco'),
             'categoria' => $request->input('categoria')
         ]);
-        dd(Produto::all()->toArray());
+        $data = $request->all();
+        // dd($data);
+
+        $produto = Produto::create($data);
+
+        return redirect()->route('produtos.index')->with('success', 'Produto criado com sucesso!');
     }
 
     /**
@@ -53,8 +58,8 @@ class ProdutoController extends Controller
      */
     public function edit(string $id)
     {
-        $produto = Produto::findorFail($id);
-        return view("produto.edit", compact('produto'));
+        $produtos = Produto::findorFail($id);
+        return view("produto.edit", compact('produtos'));
     }
 
     /**
@@ -62,8 +67,8 @@ class ProdutoController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $produto = Produto::findorFail($id);
-        $produto->update([
+        $produtos = Produto::findorFail($id);
+        $produtos->update([
             'nome' => $request->input('nome'),
             'preco' => $request->input('preco'),
             'categoria'=> $request->input('categoria')
@@ -76,14 +81,14 @@ class ProdutoController extends Controller
      */
     public function destroy(string $id)
     {
-        $produto = Produto::findorFail($id);
-        $produto->delete();
+        $produtos = Produto::findorFail($id);
+        $produtos->delete();
         return "Registro excluído com sucesso";
     }
 
     public function delete(string $id) {
-        $produto = Produto::findorFail($id);
-        return view("produto.delete", compact('produto'));
+        $produtos = Produto::findorFail($id);
+        return view("produto.delete", compact('produtos'));
 
     }
 
