@@ -40,8 +40,6 @@ class ProdutoController extends Controller
         $data = $request->all();
         // dd($data);
 
-        $produto = Produto::create($data);
-
         return redirect()->route('produtos.index')->with('success', 'Produto criado com sucesso!');
     }
 
@@ -73,7 +71,8 @@ class ProdutoController extends Controller
             'preco' => $request->input('preco'),
             'categoria'=> $request->input('categoria')
         ]);
-        return "Registro alterado com sucesso";
+        return redirect()->route('produtos.index')->with('success', 'Registro alterado com sucesso');
+        
     }
 
     /**
@@ -89,6 +88,7 @@ class ProdutoController extends Controller
     public function delete(string $id) {
         $produtos = Produto::findorFail($id);
         return view("produto.delete", compact('produtos'));
+        return redirect()->route('produtos.index')->with('success', 'Registro excluído com sucesso');
 
     }
 
